@@ -1,44 +1,7 @@
- <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
-      <!--Import style.css-->
-      <link type="text/css" rel="stylesheet" href="../static/css/style.css"/>
+ {% extends "navbar.html" %}
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
-      <!-- Slide out side nav (small screen sizes - opens after menu icon clicked) -->
-      <ul id="slide-out" class="side-nav">
-        <li><div class="userView">
-          <img class="background" src="../static/img/roses.jpg">
-          <a href="#!user"><img class="circle" src="../static/img/profile.jpg"></a>
-          <a href="#!name"><span class="white-text name">First Last</span></a>
-          <a href="#!email"><span class="white-text email">firstlast@gmail.com</span></a>
-        </div></li>
-        <li><a class="waves-effect" href="#!">Home</a></li>
-        <li><a class="waves-effect" href="#!">About Us</a></li>
-        <li><a class="waves-effect" href="#!">Contact Us</a></li>
-      </ul>
-
-      <!-- Regular top nav (med and large screen sizes) -->
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
-          <a href="#" class="brand-logo">Yelper</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="badges.html">About Us</a></li>
-            <li><a href="collapsible.html">Contact Us</a></li>
-          </ul>
-        </div>
-      </nav>
-
+      {% block cards %}
+      
       <!-- Cards -->
       <div class="container">
         <div class="row">
@@ -101,11 +64,5 @@
           </div>
         </div>
       </div>
-            
 
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../static/js/materialize.min.js"></script>
-      <script type="text/javascript" src="../static/js/yelper.js"></script>
-    </body>
-  </html>
+      {% endblock %}
