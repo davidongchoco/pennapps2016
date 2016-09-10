@@ -84,6 +84,7 @@ def estimate_ride(api_client):
 
     END_LAT = RESTAURANT['coordinate']['latitude']
     END_LNG = RESTAURANT['coordinate']['longitude']
+    print(RESTAURANT)
 
     response = api_client.get_products(START_LAT, START_LNG)
     products = response.json.get('products')
@@ -107,6 +108,7 @@ def request_ride(api_client):
 
     END_LAT = RESTAURANT['coordinate']['latitude']
     END_LNG = RESTAURANT['coordinate']['longitude']
+    print(RESTAURANT)
 
     response = api_client.get_products(START_LAT, START_LNG)
     products = response.json.get('products')
