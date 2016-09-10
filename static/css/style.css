@@ -5,3 +5,19 @@ nav .brand-logo {
 .row {
 	padding: 10px;
 }
+
+.uber-button {
+    background-image: url('../img/UBER_API_Button_2x_Grey_1px_round.png');
+    background-size: cover;
+    width: 280px;
+    height: 44px;
+    margin: 0 auto;
+}
+
+#time {
+	font-family: 'Source Sans Pro', sans-serif;
+    text-align: right;
+    margin-top: 2%;
+    padding-top: 12px;
+    padding-right: 14px;
+}
