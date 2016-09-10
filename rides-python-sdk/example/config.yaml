@@ -1,0 +1,7 @@
+client_id: -mRonVlZTNWRRXuMbU6AccXLDu3d0sef
+client_secret: wkNGjM-YHYUINUkLKOZU2-ih0o3TZTIaj1noibo2
+redirect_url: http://localhost:5000/
+scopes:
+    - profile
+    - history
+    - request
