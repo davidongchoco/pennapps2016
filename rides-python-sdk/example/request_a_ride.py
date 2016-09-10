@@ -35,10 +35,7 @@ from find_dest import get_results
 START_LAT = 40.8075
 START_LNG = -73.9626
 RADIUS = 5000
-
 RESTAURANT = get_results(START_LAT, START_LNG, RADIUS)
-END_LAT = RESTAURANT['coordinate']['latitude']
-END_LNG = RESTAURANT['coordinate']['longitude']
 
 def import_oauth2_credentials(filename='rides-python-sdk/example/oauth2_session_store.yaml'):
 
@@ -85,11 +82,14 @@ def get_time_estimate():
 
 def estimate_ride(api_client):
 
-	response = api_client.get_products(START_LAT, START_LNG)
-	products = response.json.get('products')
-	product_id = products[0].get('product_id')
+    END_LAT = RESTAURANT['coordinate']['latitude']
+    END_LNG = RESTAURANT['coordinate']['longitude']
 
-	estimate = api_client.estimate_ride(
+    response = api_client.get_products(START_LAT, START_LNG)
+    products = response.json.get('products')
+    product_id = products[0].get('product_id')
+
+    estimate = api_client.estimate_ride(
         product_id=product_id,
         start_latitude=START_LAT,
         start_longitude=START_LNG,
@@ -97,27 +97,30 @@ def estimate_ride(api_client):
         end_longitude=END_LNG,
         )
 
-	trip = estimate.json.get('trip')
-	duration_estimate = trip.get('duration_estimate')
+    trip = estimate.json.get('trip')
+    duration_estimate = trip.get('duration_estimate')
 
-	minutes = int(duration_estimate / 60)
-	return str(minutes)
+    minutes = int(duration_estimate / 60)
+    return str(minutes)
 
 def request_ride(api_client):
 
-	response = api_client.get_products(START_LAT, START_LNG)
-	products = response.json.get('products')
-	product_id = products[0].get('product_id')
+    END_LAT = RESTAURANT['coordinate']['latitude']
+    END_LNG = RESTAURANT['coordinate']['longitude']
 
-	response = api_client.request_ride(
-    product_id=product_id,
-    start_latitude=START_LAT,
-    start_longitude=START_LNG,
-    end_latitude=END_LAT,
-    end_longitude=END_LNG,
-	)
+    response = api_client.get_products(START_LAT, START_LNG)
+    products = response.json.get('products')
+    product_id = products[0].get('product_id')
 
-	ride_details = response.json
-	str_ride_details = str(ride_details)
+    response = api_client.request_ride(
+        product_id=product_id,
+        start_latitude=START_LAT,
+        start_longitude=START_LNG,
+        end_latitude=END_LAT,
+        end_longitude=END_LNG,
+    )
 
-	return str_ride_details
+    ride_details = response.json
+    str_ride_details = str(ride_details)
+
+    return str_ride_details

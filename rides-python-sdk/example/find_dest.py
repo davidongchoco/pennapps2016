@@ -27,6 +27,7 @@ def get_results_from_params(params):
     output['name'] = rest['name']
     output['coordinate'] = rest['location']['coordinate']
     output['rating'] = rest['rating']
+    print(output)
     return output
 
 def get_search_parameters(lat,lon, rad):
@@ -42,5 +43,3 @@ def get_search_parameters(lat,lon, rad):
 def get_results(lat, lon, rad):
 	params = get_search_parameters(lat, lon, rad)
 	return get_results_from_params(params)
-
-print get_results(40.8075, -73.9626, 2000)
