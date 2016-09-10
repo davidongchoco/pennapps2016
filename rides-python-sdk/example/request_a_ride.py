@@ -34,8 +34,9 @@ from find_dest import get_results
 # New York
 START_LAT = 40.8075
 START_LNG = -73.9626
+RADIUS = 5000
 
-RESTAURANT = get_results(START_LAT, START_LNG, 2000)
+RESTAURANT = get_results(START_LAT, START_LNG, RADIUS)
 END_LAT = RESTAURANT['coordinate']['latitude']
 END_LNG = RESTAURANT['coordinate']['longitude']
 
