@@ -25,7 +25,7 @@ def welcome():
 
 @app.route('/uber')
 def uber():
-    return render_template('uber.html')  # render a template
+    return render_template('uber.html', myfunction=request_a_ride.get_time_estimate)  # render a template
 
 @app.route('/uber/request')
 def request():

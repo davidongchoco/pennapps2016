@@ -66,10 +66,41 @@ def get_ride_details():
 
 	return ride_details
 
+def get_time_estimate():
+	
+	credentials = import_oauth2_credentials()
+	api_client = create_uber_client(credentials)
+
+	estimate = estimate_ride(api_client)
+	ride_details = request_ride(api_client)
+
+	time = estimate_ride(api_client)
+
+	return time
+
+def estimate_ride(api_client):
+
+	response = api_client.get_products(START_LAT, START_LNG)
+	products = response.json.get('products')
+	product_id = products[0].get('product_id')
+
+	estimate = api_client.estimate_ride(
+        product_id=product_id,
+        start_latitude=START_LAT,
+        start_longitude=START_LNG,
+        end_latitude=END_LAT,
+        end_longitude=END_LNG,
+        )
+
+	trip = estimate.json.get('trip')
+	duration_estimate = trip.get('duration_estimate')
+
+	minutes = int(duration_estimate / 60)
+	return str(minutes)
+
 def request_ride(api_client):
 
 	response = api_client.get_products(START_LAT, START_LNG)
-	return str(response.json)
 	products = response.json.get('products')
 	product_id = products[0].get('product_id')
 
