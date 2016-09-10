@@ -1,1 +1,7 @@
 venv
+static/css/materialize.css
+static/css/materialize.min.css
+static/fonts
+static/js/materialize.js
+static/js/materialize.min.js
+
