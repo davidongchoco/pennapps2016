@@ -2,11 +2,14 @@ click==6.6
 Flask==0.11.1
 flask-mongoengine==0.8
 Flask-WTF==0.12
+future==0.15.2
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
 mongoengine==0.10.6
 pymongo==3.3.0
+PyYAML==3.12
 requests==2.11.1
+uber-rides==0.2.5
 Werkzeug==0.11.11
 WTForms==2.1
