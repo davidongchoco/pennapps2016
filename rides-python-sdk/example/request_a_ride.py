@@ -23,7 +23,7 @@ from uber_rides.client import SurgeError
 from uber_rides.errors import ClientError
 from uber_rides.errors import ServerError
 
-from find_dest.py import get_results
+from find_dest import get_results
 
 # Example
 # START_LAT = 37.77
