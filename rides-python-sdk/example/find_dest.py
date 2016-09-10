@@ -21,11 +21,14 @@ def get_results_from_params(params):
 
     r = randint(0,19)
     # return request[r].location.coordinate
-    rest = request.json()['businesses'][r]
-    output = {}
-    output['name'] = rest['name']
-    output['coordinate'] = rest['location']['coordinate']
-    output['rating'] = rest['rating']
+    rest = request.json()['businesses']
+    output = []
+    for b in rest:
+    	to_add = {}
+    	to_add['name'] = b['name']
+    	to_add['coordinate'] = b['location']['coordinate']
+    	to_add['rating'] = b['rating']
+    	output.append(to_add)
     return output
 
 def get_search_parameters(lat,lon, rad):
