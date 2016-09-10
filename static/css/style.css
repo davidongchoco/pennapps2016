@@ -5,3 +5,11 @@ nav .brand-logo {
 .row {
 	padding: 10px;
 }
+
+.input-field {
+	text-align: center;
+}
+
+.row form .to {
+	padding-top: 25px;
+}
