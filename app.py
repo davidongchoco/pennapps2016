@@ -1,7 +1,7 @@
 # import the Flask class from the flask module
 from flask import Flask, render_template
 from flask.ext.mongoengine import MongoEngine
-from forms import MainForm
+from forms import FormGeneral
 
 import sys
 sys.path.insert(0, 'rides-python-sdk/example')
@@ -14,7 +14,7 @@ app = Flask(__name__)
 # use decorators to link the function to a url
 @app.route('/', methods=["GET", "POST"])
 def home():
-	form = MainForm(csrf_enabled = False)
+	form = FormGeneral(csrf_enabled = False)
 	if form.validate_on_submit():
 		return redirect('/welcome')
 	return render_template('main.html', form=form)

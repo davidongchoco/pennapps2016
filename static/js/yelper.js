@@ -5,6 +5,8 @@
     }
   );
 
+ $('.carousel.carousel-slider').carousel({full_width: true});
+
 window.onload = function() {
     var startPos;
     var geoSuccess = function(position) {
