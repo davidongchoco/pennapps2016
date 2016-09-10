@@ -1,103 +1,109 @@
- {% extends "navbar.html" %}
+{% extends "navbar.html" %}
 
-      {% block cards %}
+  {% block cards %}
       
-      <!-- Cards -->
-      <div class="container">
-        <div class="row">
-          <div class="col s10 offset-s1">
-            <div class="card">
-              <div class="card-content center-align">
-                <span class="card-title">Travel Distance - One Way (mi)</span>
-                <div class="row">
-                  <form action="" method="post">
-                    <div class="input-field col s2 offset-s3">
-                      {{ form.distanceLow(class_="center-align") }}
-                    </div>
-                    <div class="to col s2"><p class="center-align"> to </p></div>
-                    <div class="input-field col s2">
-                    {{ form.distanceHigh(class_="center-align") }}
-                    </div>
-                  </form>
+  <!-- Cards -->
+  <div class="container">
+    <div class="row">
+      <div class="col s10 offset-s1">
+        <div class="card">
+          <div class="card-content center-align">
+            <span class="card-title">Travel Distance - One Way (mi)</span>
+            <div class="row">
+              <form action="" method="post">
+                <div class="input-field col s2 offset-s3">
+                  {{ form.distanceLow(class_="center-align") }}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s10 offset-s1">
-            <div class="card">
-              <div class="card-content center-align">
-                <span class="card-title">Food Price Range Per Person</span>
-                <div class="row">
-                  <form action="" method="post">
-                    <div class="input-field col s2 offset-s2">
-                      {{ form.oneDollar }}
-                      <label for="oneDollar">$</label>
-                    </div>
-                    <div class="input-field col s2">
-                      {{ form.twoDollar }}
-                      <label for="twoDollar">$$</label>
-                    </div>
-                    <div class="input-field col s2">
-                      {{ form.threeDollar }}
-                      <label for="threeDollar">$$$</label>
-                    </div>
-                    <div class="input-field col s2">
-                      {{ form.fourDollar }}
-                      <label for="fourDollar">$$$$</label>
-                    </div>
-                  </form>
+                <div class="to col s2"><p class="center-align"> to </p></div>
+                <div class="input-field col s2">
+                {{ form.distanceHigh(class_="center-align") }}
                 </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s10 offset-s1">
-            <div class="card">
-              <div class="card-content center-align">
-                <div class="row">
-                  <span class="card-title">Number of Friends</span>
-                    <form action="" method="post">
-                      <div class="input-field col s2 offset-s5">
-                        {{ form.numFriends(class_="center-align") }}
-                      </div>
-                    </form>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s10 offset-s1">
-            <div class="card">
-              <div class="card-content center-align">
-                <span class="card-title">Food Category</span>
-                  <div class="carousel carousel-slider center" data-indicators="true">
-                 <!--    <div class="carousel-fixed-item center">
-                      <a class="btn waves-effect white grey-text darken-text-2">button</a>
-                    </div> -->
-                    <div class="carousel-item white-text" href="#one!">
-                      <h2 class="category-description">First Panel</h2>
-                      <img src="http://lorempixel.com/800/400/food/1">
-                    </div>
-                    <div class="carousel-item white-text" href="#two!">
-                      <h2>Second Panel</h2>
-                    </div>
-                    <div class="carousel-item white-text" href="#three!">
-                      <h2>Third Panel</h2>
-                    </div>
-                    <div class="carousel-item white-text" href="#four!">
-                      <h2>Fourth Panel</h2>
-                    </div>
-                  </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      {% endblock %}
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+          <span class="card-title">Food Price Range Per Person</span>
+          <div class="row">
+            <form action="" method="post">
+              <div class="input-field col s2 offset-s2">
+                {{ form.oneDollar }}
+                <label for="oneDollar">$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.twoDollar }}
+                <label for="twoDollar">$$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.threeDollar }}
+                <label for="threeDollar">$$$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.fourDollar }}
+                <label for="fourDollar">$$$$</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+          <div class="row">
+            <span class="card-title">Number of Friends</span>
+              <form action="" method="post">
+                <div class="input-field col s2 offset-s5">
+                  {{ form.numFriends(class_="center-align") }}
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+          <span class="card-title">Food Category</span>
+            <div class="carousel carousel-slider center" data-indicators="true">
+           <!--    <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">button</a>
+              </div> -->
+              <div class="carousel-item white-text" href="#one!">
+                <h2 class="category-description">First Panel</h2>
+                <img src="http://lorempixel.com/800/400/food/1">
+              </div>
+              <div class="carousel-item white-text" href="#two!">
+                <h2>Second Panel</h2>
+              </div>
+              <div class="carousel-item white-text" href="#three!">
+                <h2>Third Panel</h2>
+              </div>
+              <div class="carousel-item white-text" href="#four!">
+                <h2>Fourth Panel</h2>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+
+<button id="submit-button" class="btn waves-effect waves-light col s4 offset-s4" onclick="location.href='/uber';" type="submit" name="action">Submit
+  <i class="material-icons right">send</i>
+</button>
+
+{% endblock %}

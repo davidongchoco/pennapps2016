@@ -2,8 +2,17 @@ nav .brand-logo {
 	padding-left: 20px;
 }
 
+.material-icons{
+    padding-left: 15px;
+}
+
 .row {
 	padding: 10px;
+}
+
+#submit-button {
+    margin-left: 44%;
+    margin-bottom: 50px;
 }
 
 .input-field {
