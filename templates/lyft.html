@@ -1,0 +1,23 @@
+{% extends "navbar.html" %}
+
+{% block cards %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+          <span class="card-title">We found a place!</span>
+          <p>Estimated Time to Nearest Driver's Arrival (in seconds): {{ myeta() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="lyft-button" onclick="location.href='/lyft/request';">
+</div>
+
+{% endblock %}

@@ -23,6 +23,14 @@ nav .brand-logo {
 	padding-top: 25px;
 }
 
+.lyft-button {
+    background-image: url('../img/lyft-button.png');
+    background-size: cover;
+    width: 305px;
+    height: 44px;
+    margin: 0 auto;
+}
+
 .uber-button {
     background-image: url('../img/UBER_API_Button_2x_Grey_1px_round.png');
     background-size: cover;
