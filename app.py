@@ -9,7 +9,8 @@ import test
 
 import sys
 sys.path.insert(0, 'rides-python-sdk/example')
-from find_dest import main_function
+import request_a_ride
+
 
 # create the application object
 app = Flask(__name__)
@@ -19,8 +20,8 @@ app = Flask(__name__)
 def home():
 	form = FormGeneral(request.form, csrf_enabled = False)
 	if request.method == 'POST' and form.validate():
-		meters = 1609 * int(form.distanceHigh.data)
-		destination = main_function(40.8075, -73.9626, form.oneDollar.data, form.twoDollar.data, form.threeDollar.data, form.fourDollar.data, meters)
+		print "HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO WORLDDDDDDDDDDDDDDDD!!!!!!!!!!!"
+		print form.distanceLow.data
 		return redirect('lyft')
 	return render_template('main.html', form=form)
 

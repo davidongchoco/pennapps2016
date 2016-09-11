@@ -76,7 +76,6 @@ nav {
     background-color: rgb(234, 11, 140);
 }
 
-body {
-    /*background-color: rgb(250, 250, 250);*/
-    background-image: url("../img/background.jpg");
+.content {
+    background-color: rgb(250, 250, 250);
 }
