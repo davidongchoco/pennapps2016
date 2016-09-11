@@ -1,5 +1,5 @@
 # import the Flask class from the flask module
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, flash, redirect
 from flask.ext.mongoengine import MongoEngine
 from forms import FormGeneral
 
@@ -9,18 +9,19 @@ import test
 
 import sys
 sys.path.insert(0, 'rides-python-sdk/example')
-import request_a_ride
-
+from find_dest import main_function
 
 # create the application object
 app = Flask(__name__)
 
 # use decorators to link the function to a url
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=['GET', 'POST'])
 def home():
-	form = FormGeneral(csrf_enabled = False)
-	if form.validate_on_submit():
-		return redirect('/welcome')
+	form = FormGeneral(request.form, csrf_enabled = False)
+	if request.method == 'POST' and form.validate():
+		meters = 1609 * int(form.distanceHigh.data)
+		destination = main_function(40.8075, -73.9626, form.oneDollar.data, form.twoDollar.data, form.threeDollar.data, form.fourDollar.data, meters)
+		return redirect('lyft')
 	return render_template('main.html', form=form)
 
 @app.route('/welcome')
