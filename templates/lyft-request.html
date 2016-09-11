@@ -7,9 +7,8 @@
     <div class="col s10 offset-s1">
       <div class="card">
         <div class="card-content center-align">
-          <span class="card-title">We found a place!</span>
-          <p>Estimated Time to Nearest Driver's Arrival: {{ myeta() }} minute(s)</p>
-          <p>Ride Type: {{ myridetype() }}</p>
+          <span class="card-title">Here are the details for your Lyft</span>
+          <p>Estimated Time to Nearest Driver's Arrival (in seconds): {{ myeta() }}</p>
         </div>
       </div>
     </div>
@@ -17,8 +16,5 @@
 </div>
 
 <br>
-
-<div class="lyft-button" onclick="location.href='https://www.lyft.com/';">
-</div>
 
 {% endblock %}
