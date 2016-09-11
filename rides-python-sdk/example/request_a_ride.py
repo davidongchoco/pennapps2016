@@ -27,14 +27,14 @@ from find_dest import get_results
 from random import randint
 
 # Example
-# START_LAT = 37.77
-# START_LNG = -122.41
-# END_LAT=37.79
-# END_LNG=-122.41
+START_LAT = 37.77
+START_LNG = -122.41
+END_LAT=37.79
+END_LNG=-122.41
 
 # New York
-START_LAT = 40.8075
-START_LNG = -73.9626
+# START_LAT = 40.8075
+# START_LNG = -73.9626
 RADIUS = 5000
 PRICE = 2
 RESTAURANTS = get_results(START_LAT, START_LNG, PRICE, RADIUS)
@@ -63,22 +63,18 @@ def import_oauth2_credentials(filename='rides-python-sdk/example/oauth2_session_
     return credentials
 
 def get_ride_details():
+    
+    credentials = import_oauth2_credentials()
+    api_client = create_uber_client(credentials)
 
-	credentials = import_oauth2_credentials()
-	api_client = create_uber_client(credentials)
+    ride_details = request_ride(api_client)
 
-	ride_details = request_ride(api_client)
-
-	return ride_details
+    return ride_details
 
 def get_time_estimate():
 	
 	credentials = import_oauth2_credentials()
 	api_client = create_uber_client(credentials)
-
-	estimate = estimate_ride(api_client)
-	ride_details = request_ride(api_client)
-
 	time = estimate_ride(api_client)
 
 	return time
@@ -109,21 +105,35 @@ def estimate_ride(api_client):
     return str(minutes)
 
 def request_ride(api_client):
+    
+    # END_LAT = RESTAURANT['coordinate']['latitude']
+    # END_LNG = RESTAURANT['coordinate']['longitude']
+
+    a = 37.77
+    b = -122.41
+    c =37.79
+    d =-122.01
 
     END_LAT = RESTAURANTS[R]['coordinates']['latitude']
     END_LNG = RESTAURANTS[R]['coordinates']['longitude']
     print(RESTAURANTS[R])
 
+
     response = api_client.get_products(START_LAT, START_LNG)
     products = response.json.get('products')
     product_id = products[0].get('product_id')
 
+    print(a)
+    print(b)
+    print(c)
+    print(d)
+
     response = api_client.request_ride(
         product_id=product_id,
-        start_latitude=START_LAT,
-        start_longitude=START_LNG,
-        end_latitude=END_LAT,
-        end_longitude=END_LNG,
+        start_latitude=a,
+        start_longitude=b,
+        end_latitude=c,
+        end_longitude=d,
     )
 
     ride_details = response.json
