@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 class FormGeneral(Form):
     distanceLow = IntegerField('Price Lower Bound', render_kw={"value": "5"})
-    distanceHigh = IntegerField('Price Upper Bound', render_kw={"value": "25"})
+    distanceHigh = IntegerField('Price Upper Bound', render_kw={"value": "10"})
     oneDollar = BooleanField('One Dollar Sign')
     twoDollar = BooleanField('Two Dollar Signs')
     threeDollar = BooleanField('Three Dollar Signs')
