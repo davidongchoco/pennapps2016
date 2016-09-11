@@ -36,7 +36,8 @@ from random import randint
 START_LAT = 40.8075
 START_LNG = -73.9626
 RADIUS = 5000
-RESTAURANTS = get_results(START_LAT, START_LNG, RADIUS)
+PRICE = 2
+RESTAURANTS = get_results(START_LAT, START_LNG, PRICE)
 R = randint(0, len(RESTAURANTS)-1)
 
 def import_oauth2_credentials(filename='rides-python-sdk/example/oauth2_session_store.yaml'):
