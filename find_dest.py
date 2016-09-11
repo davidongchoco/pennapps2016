@@ -47,3 +47,5 @@ def get_results(start_lat,start_lng, price, rad):
         to_add['price'] = b['price']
         output.append(to_add)
     return output
+
+print(get_results(40.8075, -73.9626, [False, False, True, True], 4000))
