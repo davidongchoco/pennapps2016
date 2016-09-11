@@ -1,46 +1,54 @@
 from random import randint
 import rauth
 import time
+import yelp
+import requests
+import os
 
 
 def get_results_from_params(params):
-
-    #Obtain these from Yelp's manage access page
-    consumer_key="3IzXqKWFoPm2ZnOtfpG1yA"
-    consumer_secret="VslZ8Xem6kiwAYhm-0_89I6PYjk"
-    token="2PbRTKDOoBp4wkqel8R2VcO048P5Ol34"
-    token_secret="9VrRMdju-aok7yIMRKiIalO_mSw"
-    
-    session = rauth.OAuth1Session(
-        consumer_key = consumer_key,
-        consumer_secret = consumer_secret,
-        access_token = token,
-        access_token_secret = token_secret)
-        
-    request = session.get("http://api.yelp.com/v2/search",params=params)
 
     r = randint(0,19)
     # return request[r].location.coordinate
     rest = request.json()['businesses']
     output = []
-    for b in rest:
+    for b in results:
     	to_add = {}
     	to_add['name'] = b['name']
     	to_add['coordinate'] = b['location']['coordinate']
     	to_add['rating'] = b['rating']
+        to_add['price'] = b['price']
     	output.append(to_add)
     return output
 
-def get_search_parameters(lat,lon, rad):
-    #See the Yelp API for more details
-    params = {}
-    params["term"] = "restaurant"
-    params["ll"] = "{},{}".format(str(lat),str(lon))
-    params["radius_filter"] = rad
-    params["limit"] = "20"
+def get_results(start_lat,start_lng, price):
 
-    return params
+    resp = requests.post('https://api.yelp.com/oauth2/token',
+                         data={'grant_type': 'client_credentials',
+                               'client_id': 'T6V81F2O5GgfcANv12kRdA',
+                               'client_secret': 'Gj0dTHO7d9wQh4OfQmHRgbGseQjRlOn17yZW6hZ2qKJtyZfxeNz3SkkuqhuSii4M'})
 
-def get_results(lat, lon, rad):
-	params = get_search_parameters(lat, lon, rad)
-	return get_results_from_params(params)
+    yelp_access_token = resp.json()['access_token']
+
+    yelp_search_url = ('https://api.yelp.com/v3/businesses/search?'
+        'latitude=%s&longitude=%s&sort_by=rating&'
+        'price=%s&open_now_filter=True')
+    results = requests.get(
+        yelp_search_url % (start_lat, start_lng, price),
+        headers={ 'Authorization': 'Bearer %s' % yelp_access_token })
+
+    results = results.json()['businesses']
+    print(results)
+    output = []
+    for b in results:
+        for l in b['categories']:
+            # if l['alias'] == 'bars' or l['alias'] == 'restaurants':
+            to_add = {}
+            to_add['name'] = b['name']
+            to_add['coordinates'] = b['coordinates']
+            to_add['rating'] = b['rating']
+            to_add['price'] = b['price']
+            output.append(to_add)
+    return output
+
+print(get_results(40.8075, -73.9626, 1))
