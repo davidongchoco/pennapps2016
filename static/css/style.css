@@ -24,7 +24,6 @@ nav .brand-logo, #nav-mobile li {
 }
 
 #submit-button {
-    margin-left: 44%;
     margin-bottom: 50px;
 }
 
@@ -32,16 +31,8 @@ nav .brand-logo, #nav-mobile li {
 	text-align: center;
 }
 
-.row form .to {
+.row .input-field + .to {
 	padding-top: 25px;
-}
-
-.lyft-button {
-    background-image: url('../img/lyft-button.png');
-    background-size: cover;
-    width: 305px;
-    height: 44px;
-    margin: 0 auto;
 }
 
 .uber-button {
