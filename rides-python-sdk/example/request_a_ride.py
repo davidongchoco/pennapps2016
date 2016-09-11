@@ -24,6 +24,7 @@ from uber_rides.errors import ClientError
 from uber_rides.errors import ServerError
 
 from find_dest import get_results
+from random import randint
 
 # Example
 START_LAT = 37.77
@@ -35,7 +36,9 @@ END_LNG=-122.41
 # START_LAT = 40.8075
 # START_LNG = -73.9626
 RADIUS = 5000
-RESTAURANT = get_results(START_LAT, START_LNG, RADIUS)
+PRICE = 2
+RESTAURANTS = get_results(START_LAT, START_LNG, PRICE, RADIUS)
+R = randint(0, len(RESTAURANTS)-1)
 
 def import_oauth2_credentials(filename='rides-python-sdk/example/oauth2_session_store.yaml'):
 
@@ -78,8 +81,10 @@ def get_time_estimate():
 
 def estimate_ride(api_client):
 
-    END_LAT = RESTAURANT['coordinate']['latitude']
-    END_LNG = RESTAURANT['coordinate']['longitude']
+    R = randint(0, len(RESTAURANTS)-1)
+    END_LAT = RESTAURANTS[R]['coordinates']['latitude']
+    END_LNG = RESTAURANTS[R]['coordinates']['longitude']
+    print(RESTAURANTS[R])
 
     response = api_client.get_products(START_LAT, START_LNG)
     products = response.json.get('products')
@@ -108,6 +113,11 @@ def request_ride(api_client):
     b = -122.41
     c =37.79
     d =-122.01
+
+    END_LAT = RESTAURANTS[R]['coordinates']['latitude']
+    END_LNG = RESTAURANTS[R]['coordinates']['longitude']
+    print(RESTAURANTS[R])
+
 
     response = api_client.get_products(START_LAT, START_LNG)
     products = response.json.get('products')

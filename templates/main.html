@@ -1,25 +1,24 @@
 {% extends "navbar.html" %}
 
-  {% block cards %}
+{% block cards %}
       
-  <!-- Cards -->
-  <div class="container">
-    <div class="row">
-      <div class="col s10 offset-s1">
-        <div class="card">
-          <div class="card-content center-align">
-            <span class="card-title">Price Range</span>
-            <div class="row">
-              <form action="" method="post">
-                <div class="input-field col s2 offset-s3">
-                  {{ form.priceLow(class_="center-align") }}
-                </div>
-                <div class="to col s2"><p class="center-align"> to </p></div>
-                <div class="input-field col s2">
-                {{ form.priceHigh(class_="center-align") }}
-                </div>
-              </form>
-            </div>
+<!-- Cards -->
+<div class="container">
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <div class="card">
+        <div class="card-content center-align">
+          <span class="card-title">Travel Distance - One Way (mi)</span>
+          <div class="row">
+            <form action="" method="post">
+              <div class="input-field col s2 offset-s3">
+                {{ form.distanceLow(class_="center-align") }}
+              </div>
+              <div class="to col s2"><p class="center-align"> to </p></div>
+              <div class="input-field col s2">
+              {{ form.distanceHigh(class_="center-align") }}
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -30,9 +29,27 @@
     <div class="col s10 offset-s1">
       <div class="card">
         <div class="card-content center-align">
-          <span class="card-title">Travel Time Range - One Way</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <span class="card-title">Food Price Range Per Person</span>
+          <div class="row">
+            <form action="" method="post">
+              <div class="input-field col s2 offset-s2">
+                {{ form.oneDollar }}
+                <label for="oneDollar">$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.twoDollar }}
+                <label for="twoDollar">$$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.threeDollar }}
+                <label for="threeDollar">$$$</label>
+              </div>
+              <div class="input-field col s2">
+                {{ form.fourDollar }}
+                <label for="fourDollar">$$$$</label>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -42,42 +59,25 @@
     <div class="col s10 offset-s1">
       <div class="card">
         <div class="card-content center-align">
-          <span class="card-title">Number of Friends</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <div class="row">
+            <span class="card-title">Number of Friends</span>
+              <form action="" method="post">
+                <div class="input-field col s2 offset-s5">
+                  {{ form.numFriends(class_="center-align") }}
+                </div>
+              </form>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col s10 offset-s1">
-      <div class="card">
-        <div class="card-content center-align">
-          <span class="card-title">Food Category</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col s10 offset-s1">
-      <div class="card">
-        <div class="card-content center-align">
-          <span class="card-title">Dietary Restrictions</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <button id="submit-button" class="btn waves-effect waves-light col s4 offset-s4" onclick="location.href='/lyft';" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+
 </div>
-
-<button id="submit-button" class="btn waves-effect waves-light col s4 offset-s4" onclick="location.href='/lyft';" type="submit" name="action">Submit
-  <i class="material-icons right">send</i>
-</button>
 
 <script type="text/javascript">
   
