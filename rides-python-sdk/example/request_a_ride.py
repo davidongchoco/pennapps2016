@@ -37,7 +37,7 @@ START_LAT = 40.8075
 START_LNG = -73.9626
 RADIUS = 5000
 PRICE = 2
-RESTAURANTS = get_results(START_LAT, START_LNG, PRICE)
+RESTAURANTS = get_results(START_LAT, START_LNG, PRICE, RADIUS)
 R = randint(0, len(RESTAURANTS)-1)
 
 def import_oauth2_credentials(filename='rides-python-sdk/example/oauth2_session_store.yaml'):
@@ -86,8 +86,8 @@ def get_time_estimate():
 def estimate_ride(api_client):
 
     R = randint(0, len(RESTAURANTS)-1)
-    END_LAT = RESTAURANTS[R]['coordinate']['latitude']
-    END_LNG = RESTAURANTS[R]['coordinate']['longitude']
+    END_LAT = RESTAURANTS[R]['coordinates']['latitude']
+    END_LNG = RESTAURANTS[R]['coordinates']['longitude']
     print(RESTAURANTS[R])
 
     response = api_client.get_products(START_LAT, START_LNG)
@@ -110,8 +110,8 @@ def estimate_ride(api_client):
 
 def request_ride(api_client):
 
-    END_LAT = RESTAURANTS[R]['coordinate']['latitude']
-    END_LNG = RESTAURANTS[R]['coordinate']['longitude']
+    END_LAT = RESTAURANTS[R]['coordinates']['latitude']
+    END_LNG = RESTAURANTS[R]['coordinates']['longitude']
     print(RESTAURANTS[R])
 
     response = api_client.get_products(START_LAT, START_LNG)
